@@ -9,11 +9,11 @@ PAOLO VIOTTI,MARKO VUKOLIC
 Cette article propose une revue théorique de plus de 50 modèles de cohérence pour les sytémes distribués . Ce projet reproduit et étend empiriquement les résultats de la section 3.8 sur la cohérence tunable déployant un cluster Cassandra réel sur 3 noeuds avec Docker.
 
 Sources : Ce projet est basé sur les dépots suivant
-Déploiement d'un cluster Cassandra avec Docker:
+- Déploiement d'un cluster Cassandra avec Docker:
 [medvekoma/docker-cassandra](https://github.com/medvekoma/docker-cassandra)
-Connexion Python vers Cassandra dans Docker
+- Connexion Python vers Cassandra dans Docker
 [mramshaw/Python_Cassandra](https://github.com/mramshaw/Python_Cassandra)
-Structure générale d'un benchmark de base de données avec Python
+- Structure générale d'un benchmark de base de données avec Python
 [kmjungersen/BenchmarkDB](https://github.com/kmjungersen/BenchmarkDB) 
 
 ## Architceture du Cluster 
