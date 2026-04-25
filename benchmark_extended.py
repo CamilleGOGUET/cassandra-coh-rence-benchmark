@@ -1,3 +1,24 @@
+# Benchmark Cassandra - Extension en profondeur
+# Cours UQAC 6MIG813 - Systemes Repartis - UQAC
+#
+# Extension de benchmark.py avec 3 scenarios :
+#
+# Scenario 1 : Charge variable (10 a 1000 ops)
+#   Objectif : observer l'effet warm-up et la stabilite sous charge
+#   Reference : kmjungersen/BenchmarkDB (GitHub)
+#
+# Scenario 2 : Simulation de panne
+#   Objectif : mesurer la disponibilite par niveau
+#   Lien : Theoreme CAP + Section 3.2 article
+#
+# Scenario 3 : Mesure du staleness
+#   Objectif : quantifier la fraicheur des donnees
+#   Lien direct : Section 3.6 article
+#   TIMEDVISIBILITY(delta) : une ecriture au temps t
+#   est visible par tous au temps t + delta
+#
+# Reference : Viotti & Vukolic (2016) Sections 3.2, 3.6 et 3.8
+
 from cassandra.cluster import Cluster, ExecutionProfile, EXEC_PROFILE_DEFAULT
 from cassandra.policies import DCAwareRoundRobinPolicy
 from cassandra import ConsistencyLevel
