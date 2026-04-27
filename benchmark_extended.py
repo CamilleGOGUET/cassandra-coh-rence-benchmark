@@ -4,19 +4,9 @@
 # Extension de benchmark.py avec 3 scenarios :
 #
 # Scenario 1 : Charge variable (10 a 1000 ops)
-#   Objectif : observer l'effet warm-up et la stabilite sous charge
-#   Reference : kmjungersen/BenchmarkDB (GitHub)
-#
 # Scenario 2 : Simulation de panne
-#   Objectif : mesurer la disponibilite par niveau
-#   Lien : Theoreme CAP + Section 3.2 article
-#
 # Scenario 3 : Mesure du staleness
-#   Objectif : quantifier la fraicheur des donnees
-#   Lien direct : Section 3.6 article
-#   TIMEDVISIBILITY(delta) : une ecriture au temps t
-#   est visible par tous au temps t + delta
-#
+#  
 # Reference : Viotti & Vukolic (2016) Sections 3.2, 3.6 et 3.8
 
 from cassandra.cluster import Cluster, ExecutionProfile, EXEC_PROFILE_DEFAULT
@@ -56,9 +46,9 @@ CONSISTENCY_LEVELS = {
     'ALL':    ConsistencyLevel.ALL
 }
 
-# ============================================================
-# SCENARIO 1 — Charge variable
-# ============================================================
+
+# SCENARIO 1 : Charge variable
+
 print("\n" + "="*60)
 print("SCENARIO 1 — Charge variable")
 print("="*60)
@@ -135,9 +125,9 @@ df_charge = pd.DataFrame(resultats_charge)
 df_charge.to_csv('/resultats_charge.csv', index=False)
 print("\nResultats charge sauvegardes dans /resultats_charge.csv")
 
-# ============================================================
-# SCENARIO 2 — Simulation de panne
-# ============================================================
+
+# SCENARIO 2 :  Simulation de panne
+
 print("\n" + "="*60)
 print("SCENARIO 2 — Simulation de panne (noeud isole)")
 print("="*60)
@@ -214,9 +204,9 @@ df_panne = pd.DataFrame(resultats_panne)
 df_panne.to_csv('/resultats_panne.csv', index=False)
 print("\nResultats panne sauvegardes dans /resultats_panne.csv")
 
-# ============================================================
-# SCENARIO 3 — Mesure de la fraicheur (Staleness)
-# ============================================================
+
+# SCENARIO 3 : Mesure de la fraicheur (Staleness)
+
 print("\n" + "="*60)
 print("SCENARIO 3 — Mesure de la fraicheur (Staleness)")
 print("="*60)
@@ -295,9 +285,9 @@ df_staleness = pd.DataFrame(resultats_staleness)
 df_staleness.to_csv('/resultats_staleness.csv', index=False)
 print("\nResultats staleness sauvegardes dans /resultats_staleness.csv")
 
-# ============================================================
+
 # GRAPHIQUES
-# ============================================================
+
 print("\nGeneration des graphiques...")
 
 colors  = {'ONE': '#2ecc71', 'QUORUM': '#f39c12', 'ALL': '#e74c3c'}
