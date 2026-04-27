@@ -63,9 +63,6 @@ except Exception as e:
     exit(1)
 
 # Les 3 niveaux de coherence a tester
-# ONE    -> 1 replique repond  -> Eventual Consistency (Section 3.2)
-# QUORUM -> 2/3 repliques      -> Tunable Consistency  (Section 3.8)
-# ALL    -> 3/3 repliques      -> Linearizabilite approx (Section 3.1)
 # Source : https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/dml/dmlConfigConsistency.html
 CONSISTENCY_LEVELS = {
     'ONE':    ConsistencyLevel.ONE,
@@ -141,10 +138,10 @@ def benchmark(consistency_name, consistency_level, nb_ops=NB_OPERATIONS):
     #                      important pour les SLAs en production
     # - debit            : operations par seconde
     # - erreurs          : timeouts et indisponibilites
-    #
-    # Le P99 est particulierement important pour le niveau ONE
-    # car la coherence eventuelle peut causer des lectures lentes
-    # dans 1% des cas (attente de propagation)
+    
+    
+    
+    
     results = {
         'niveau':           consistency_name,
         'write_mean':       np.mean(write_latencies),
